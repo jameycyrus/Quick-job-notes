@@ -5,6 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quick Job Notes 2 - Web Form</title>
 <style>
+  /* Bottom toolbar */
+.toolbar{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+}
+
+/* Make room so toolbar doesn’t cover form */
+body{
+  padding-bottom: 90px;
+}
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin:16px; line-height:1.35}
 h1{font-size:20px; margin:0 0 8px}
 h2{font-size:16px; margin:18px 0 8px; color:#2F5E88}
