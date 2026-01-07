@@ -7,6 +7,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quick Job Notes 2 - Web Form</title>
 <style>
+  input[type="file"] {
+  padding: 12px;
+  border: 1px dashed #ccc;
+  border-radius: 12px;
+  width: 100%;
+  background: #fafafa;
+}
   .options-list{display:flex; flex-direction:column; gap:10px; margin:10px 0;}
 .opt{display:flex; align-items:center; gap:10px; padding:10px; border:1px solid #eee; border-radius:12px;}
 .opt label{flex:1; font-weight:600;}
@@ -63,6 +70,19 @@ hr{border:none; border-top:1px solid #eee; margin:18px 0}
 </div>
 
 <h2>Job Notes</h2>
+  <h2>Before Photos</h2>
+
+<div class="field">
+  <input
+    type="file"
+    accept="image/*"
+    capture="environment"
+    multiple
+  >
+  <small>
+    Take photos before work begins for documentation.
+  </small>
+</div>
 <textarea name="job_notes" placeholder="Type/paste converted handwriting here..."></textarea>
 
 <hr>
