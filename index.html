@@ -7,12 +7,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quick Job Notes 2 - Web Form</title>
 <style>
-  input[type="file"] {
-  padding: 12px;
-  border: 1px dashed #ccc;
-  border-radius: 12px;
-  width: 100%;
-  background: #fafafa;
+  /* Before Photos upload + thumbnails */
+input[type="file"]{
+  width:100%;
+  padding:12px;
+  border:1px dashed #ccc;
+  border-radius:12px;
+  background:#fafafa;
+}
+
+/* 2 x 2 grid = “quarter page” feel */
+.photo-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:12px;
+  margin:10px 0 20px;
+}
+
+.photo-card{
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:10px;
+  background:#fff;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.photo-card img{
+  width:100%;
+  height:220px;     /* bump to 260/300 if you want */
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+}
+
+.photo-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:8px;
+}
+
+.photo-actions button{
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background:#fff;
+}
+
+/* Print/PDF rules */
+@media print{
+  .toolbar{display:none !important;}
+
+  /* make photos bigger on paper */
+  .photo-card img{ height:330px; }
+
+  /* force a new page after every 4 photos */
+  .print-page-break{
+    break-after: page;
+    page-break-after: always;
+  }
 }
   .options-list{display:flex; flex-direction:column; gap:10px; margin:10px 0;}
 .opt{display:flex; align-items:center; gap:10px; padding:10px; border:1px solid #eee; border-radius:12px;}
@@ -74,14 +127,17 @@ hr{border:none; border-top:1px solid #eee; margin:18px 0}
 
 <div class="field">
   <input
+    id="beforePhotos"
     type="file"
     accept="image/*"
     capture="environment"
     multiple
   >
-  <small>
-    Take photos before work begins for documentation.
-  </small>
+  <small>Take photos before work begins for documentation.</small>
+
+  <!-- thumbnails show up here -->
+  <div id="beforePhotoGrid" class="photo-grid"></div>
+</div>
 </div>
 <textarea name="job_notes" placeholder="Type/paste converted handwriting here..."></textarea>
 
@@ -227,4 +283,44 @@ hr{border:none; border-top:1px solid #eee; margin:18px 0}
 </div>
   
 </div>
+ <script>
+  // Enable / disable quantity inputs
+  function toggleQty(cb) {
+    const row = cb.closest('.row');
+    const qty = row.querySelector('.qty');
+    if (!qty) return;
+    qty.disabled = !cb.checked;
+    if (!cb.checked) qty.value = 1;
+  }
+
+  // Photo preview + delete
+  document.addEventListener('DOMContentLoaded', () => {
+    const fileInput = document.querySelector('input[type="file"][multiple]');
+    if (!fileInput) return;
+
+    const preview = document.createElement('div');
+    preview.className = 'photo-preview';
+    fileInput.after(preview);
+
+    fileInput.addEventListener('change', () => {
+      preview.innerHTML = '';
+      [...fileInput.files].forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          const wrap = document.createElement('div');
+          wrap.className = 'thumb';
+
+          wrap.innerHTML = `
+            <img src="${e.target.result}">
+            <button type="button">✕</button>
+          `;
+
+          wrap.querySelector('button').onclick = () => wrap.remove();
+          preview.appendChild(wrap);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  });
+</script> 
 </body></html>
