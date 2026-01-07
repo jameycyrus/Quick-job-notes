@@ -7,6 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quick Job Notes 2 - Web Form</title>
 <style>
+  .options-list{display:flex; flex-direction:column; gap:10px; margin:10px 0;}
+.opt{display:flex; align-items:center; gap:10px; padding:10px; border:1px solid #eee; border-radius:12px;}
+.opt label{flex:1; font-weight:600;}
+.opt .qty{width:90px; padding:10px; border:1px solid #aaa; border-radius:10px;}
+.opt .customtext{flex:2; padding:10px; border:1px solid #aaa; border-radius:10px;}
   /* Bottom toolbar */
 .toolbar{
   position: fixed;
@@ -133,5 +138,69 @@ hr{border:none; border-top:1px solid #eee; margin:18px 0}
 <div class="row"><div class="left"><input type="checkbox" name="elec_troubleshoot"><span>Troubleshooting (hrs)</span></div><input type="number" min="0" step="1" name="elec_troubleshoot_qty" placeholder="Qty"></div>
 <div class="row"><div class="left"><input type="checkbox" name="elec_other_cb"><span>Other</span></div><input type="text" name="elec_other_text" placeholder="Describe..."><input type="number" min="0" step="1" name="elec_other_qty" placeholder="Qty"></div>
 <div class="row"><div class="left"><input type="checkbox" name="elec_extra_cb"><span>Extra</span></div></div>
-<p class='small'>This HTML form is Base44-ready (web view). To save submissions, we connect it to your Base44 tables / API.</p>
+<p class='small'>This HTML form is Base44-ready (web view). To save submissions, we connect it to your Base44 tables / API.</<h2>Common Options</h2>
+<div class="options-list">
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Storm Door</label>
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Ring Doorbell</label>
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Ring Camera</label>
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Faucet Replace</label>
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Shower Handle Replace</label>
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Toilet Replace</label>
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Toilet Flusher / Fill Valve</label>
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Door Knob Replace</label>
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <hr>
+
+  <!-- Blank custom lines -->
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Custom Line 1:</label>
+    <input class="customtext" type="text" placeholder="Type item...">
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Custom Line 2:</label>
+    <input class="customtext" type="text" placeholder="Type item...">
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" onchange="toggleQty(this)"> Custom Line 3:</label>
+    <input class="customtext" type="text" placeholder="Type item...">
+    <input class="qty" type="number" min="1" value="1" disabled>
+  </div>
+
+</div>
 </body></html>
