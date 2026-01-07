@@ -218,44 +218,5 @@ hr{border:none; border-top:1px solid #eee; margin:18px 0}
 </div>
   
 </div>
- <script>
-  // Enable / disable quantity inputs
-  function toggleQty(cb) {
-    const row = cb.closest('.row');
-    const qty = row.querySelector('.qty');
-    if (!qty) return;
-    qty.disabled = !cb.checked;
-    if (!cb.checked) qty.value = 1;
-  }
-
-  // Photo preview + delete
-  document.addEventListener('DOMContentLoaded', () => {
-    const fileInput = document.querySelector('input[type="file"][multiple]');
-    if (!fileInput) return;
-
-    const preview = document.createElement('div');
-    preview.className = 'photo-preview';
-    fileInput.after(preview);
-
-    fileInput.addEventListener('change', () => {
-      preview.innerHTML = '';
-      [...fileInput.files].forEach((file, index) => {
-        const reader = new FileReader();
-        reader.onload = e => {
-          const wrap = document.createElement('div');
-          wrap.className = 'thumb';
-
-          wrap.innerHTML = `
-            <img src="${e.target.result}">
-            <button type="button">✕</button>
-          `;
-
-          wrap.querySelector('button').onclick = () => wrap.remove();
-          preview.appendChild(wrap);
-        };
-        reader.readAsDataURL(file);
-      });
-    });
-  });
-</script> 
+ 
 </body></html>
