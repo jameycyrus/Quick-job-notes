@@ -111,6 +111,50 @@ input[type="file"]{
     page-break-after: always;
   }
 }
+  /* ===== BEFORE PHOTOS: HARD CLAMP (screen) ===== */
+#beforePhotoGrid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+  margin:10px 0 20px;
+}
+
+#beforePhotoGrid .photo-card{
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:8px;
+  background:#fff;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+#beforePhotoGrid img{
+  width:100% !important;
+  max-width:100% !important;
+  height:120px !important;        /* screen thumb size */
+  max-height:120px !important;
+  object-fit:cover !important;
+  display:block !important;
+  border-radius:10px;
+}
+
+/* ===== PRINT/PDF: EVEN HARDER CLAMP ===== */
+@media print{
+  #beforePhotoGrid{
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap:8px !important;
+  }
+
+  #beforePhotoGrid img{
+    height:1.4in !important;       /* PRINT size (4 per page vibe) */
+    max-height:1.4in !important;
+  }
+
+  #beforePhotoGrid .photo-card{
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
   /* Bottom toolbar */
 .toolbar{
   position: fixed;
