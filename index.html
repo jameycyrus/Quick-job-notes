@@ -72,6 +72,47 @@ input[type="file"]{
 .opt label{flex:1; font-weight:600;}
 .opt .qty{width:90px; padding:10px; border:1px solid #aaa; border-radius:10px;}
 .opt .customtext{flex:2; padding:10px; border:1px solid #aaa; border-radius:10px;}
+  /* --- PRINT: keep photos small + 4 per page --- */
+@media print {
+
+  /* keep grid 2x2 */
+  .photo-grid{
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* card must never grow */
+  .photo-card{
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 6px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* THIS is the big fix: hard cap image height in print */
+  .photo-card img{
+    width: 100% !important;
+    height: 1.9in !important;     /* ~quarter-page-ish */
+    max-height: 1.9in !important;  /* prevents “3 pages tall” */
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* hide buttons/controls in PDF */
+  .photo-actions,
+  .toolbar,
+  input[type="file"]{
+    display: none !important;
+  }
+
+  /* Optional: if anything tries to split weirdly */
+  .photo-page{
+    break-after: page;
+    page-break-after: always;
+  }
+}
   /* Bottom toolbar */
 .toolbar{
   position: fixed;
