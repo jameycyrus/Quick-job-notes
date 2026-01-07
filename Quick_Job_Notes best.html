@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick Job Notes 2 - Web Form</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin:16px; line-height:1.35}
+h1{font-size:20px; margin:0 0 8px}
+h2{font-size:16px; margin:18px 0 8px; color:#2F5E88}
+.field{display:flex; gap:10px; flex-wrap:wrap; margin:8px 0}
+label{font-weight:600}
+input[type="text"], input[type="tel"], input[type="number"]{padding:10px; border:1px solid #aaa; border-radius:10px; min-width:220px}
+.row{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border:1px solid #ddd; border-radius:12px; margin:10px 0}
+.row .left{display:flex; align-items:center; gap:10px}
+.row input[type="checkbox"]{width:24px; height:24px}
+.row input[type="number"]{min-width:90px}
+.small{color:#666; font-size:12px}
+textarea{width:100%; min-height:140px; padding:12px; border:1px solid #aaa; border-radius:12px}
+hr{border:none; border-top:1px solid #eee; margin:18px 0}
+</style>
+</head>
+<body>
+<h1>Quick Job Notes</h1>
+
+<div class="field">
+  <div><label>Customer</label><br><input type="text" name="customer"></div>
+  <div><label>Phone</label><br><input type="tel" name="phone"></div>
+  <div><label>Job #</label><br><input type="text" name="job_number"></div>
+</div>
+
+<h2>Job Notes</h2>
+<textarea name="job_notes" placeholder="Type/paste converted handwriting here..."></textarea>
+
+<hr>
+<h2>Job Checklist - Quick Notes</h2>
+
+<h2>Scope / Findings</h2>
+<div class="row"><div class="left"><input type="checkbox" name="scope_electrical"><span>Electrical issue</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="scope_plumbing"><span>Plumbing issue</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="scope_drywall"><span>Drywall repair</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="scope_appliance"><span>Appliance install</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="scope_fanlight"><span>Fan / light</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="scope_outletswitch"><span>Outlet / switch</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="scope_panelbreaker"><span>Panel / breaker</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="scope_other_cb"><span>Other</span></div><input type="text" name="scope_other_text" placeholder="Describe..."></div>
+<h2>Actions Taken</h2>
+<div class="row"><div class="left"><input type="checkbox" name="action_diagnosed"><span>Diagnosed only</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="action_tempfix"><span>Temporary fix</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="action_completed"><span>Repair completed</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="action_partsordered"><span>Parts ordered</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="action_returnvisit"><span>Return visit needed</span></div></div>
+<h2>I Recommend</h2>
+<div class="row"><div class="left"><input type="checkbox" name="rec_none"><span>No further action needed</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="rec_repairreplace"><span>Repair / replacement</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="rec_upgrade"><span>Upgrade (safety / performance)</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="rec_addcircuit"><span>Additional outlet / circuit</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="rec_panelupgrade"><span>Panel / breaker upgrade</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="rec_code"><span>Code or safety correction</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="rec_followup"><span>Schedule follow-up visit</span></div></div>
+<div class="row"><div class="left"><input type="checkbox" name="rec_other_cb"><span>Other</span></div><input type="text" name="rec_other_text" placeholder="Describe..."></div>
+<hr>
+<h2>TV Mounting - Quick Checklist</h2>
+<div class='small'>Qty is optional — use it when it matters.</div>
+<h2>TV Size / Quantity</h2>
+<div class="row"><div class="left"><input type="checkbox" name="tv_19_43"><span>19–43 inch</span></div><input type="number" min="0" step="1" name="tv_19_43_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="tv_44_65"><span>44–65 inch</span></div><input type="number" min="0" step="1" name="tv_44_65_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="tv_66_85"><span>66–85 inch</span></div><input type="number" min="0" step="1" name="tv_66_85_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="tv_86_plus"><span>86 inch +</span></div><input type="number" min="0" step="1" name="tv_86_plus_qty" placeholder="Qty"></div>
+<h2>Mount Type / Quantity</h2>
+<div class="row"><div class="left"><input type="checkbox" name="mt_fixed"><span>Fixed / Flat</span></div><input type="number" min="0" step="1" name="mt_fixed_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="mt_tilt"><span>Tilt</span></div><input type="number" min="0" step="1" name="mt_tilt_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="mt_fullmotion"><span>Full Motion</span></div><input type="number" min="0" step="1" name="mt_fullmotion_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="mt_ceiling"><span>Ceiling</span></div><input type="number" min="0" step="1" name="mt_ceiling_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="mt_customer"><span>Customer supplied</span></div><input type="number" min="0" step="1" name="mt_customer_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="mt_tech"><span>Tech supplied</span></div><input type="number" min="0" step="1" name="mt_tech_qty" placeholder="Qty"></div>
+<h2>Wall Type / Quantity</h2>
+<div class="row"><div class="left"><input type="checkbox" name="wall_drywall"><span>Drywall / studs</span></div><input type="number" min="0" step="1" name="wall_drywall_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="wall_brick"><span>Brick</span></div><input type="number" min="0" step="1" name="wall_brick_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="wall_concrete"><span>Concrete</span></div><input type="number" min="0" step="1" name="wall_concrete_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="wall_fireplace"><span>Fireplace</span></div><input type="number" min="0" step="1" name="wall_fireplace_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="wall_metalstuds"><span>Metal studs</span></div><input type="number" min="0" step="1" name="wall_metalstuds_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="wall_other_cb"><span>Other</span></div><input type="text" name="wall_other_text" placeholder="Describe..."><input type="number" min="0" step="1" name="wall_other_qty" placeholder="Qty"></div>
+<h2>Add-Ons / Quantities</h2>
+<div class="row"><div class="left"><input type="checkbox" name="add_inwall"><span>In-wall wire concealment</span></div><input type="number" min="0" step="1" name="add_inwall_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="add_raceway"><span>Raceway concealment</span></div><input type="number" min="0" step="1" name="add_raceway_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="add_outletrelocate"><span>Outlet added / relocated</span></div><input type="number" min="0" step="1" name="add_outletrelocate_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="add_soundbar"><span>Soundbar mounted</span></div><input type="number" min="0" step="1" name="add_soundbar_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="add_cablemgmt"><span>Cable management</span></div><input type="number" min="0" step="1" name="add_cablemgmt_qty" placeholder="Qty"></div>
+<hr>
+<h2>Electrical - Quick Checklist</h2>
+<div class='small'>Qty is optional — use it when it matters.</div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_outlet"><span>Outlet / receptacle</span></div><input type="number" min="0" step="1" name="elec_outlet_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_switch"><span>Switch (single / 3-way)</span></div><input type="number" min="0" step="1" name="elec_switch_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_gfciafci"><span>GFCI / AFCI</span></div><input type="number" min="0" step="1" name="elec_gfciafci_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_lightfixture"><span>Light fixture</span></div><input type="number" min="0" step="1" name="elec_lightfixture_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_ceilingfan"><span>Ceiling fan</span></div><input type="number" min="0" step="1" name="elec_ceilingfan_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_recessed"><span>Recessed light</span></div><input type="number" min="0" step="1" name="elec_recessed_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_bathfan"><span>Bathroom exhaust fan</span></div><input type="number" min="0" step="1" name="elec_bathfan_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_smokeco"><span>Smoke / CO detector</span></div><input type="number" min="0" step="1" name="elec_smokeco_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_appliancecircuit"><span>Appliance circuit</span></div><input type="number" min="0" step="1" name="elec_appliancecircuit_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_dedicated"><span>Dedicated circuit</span></div><input type="number" min="0" step="1" name="elec_dedicated_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_panelbreaker"><span>Panel / breaker</span></div><input type="number" min="0" step="1" name="elec_panelbreaker_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_subpanel"><span>Subpanel</span></div><input type="number" min="0" step="1" name="elec_subpanel_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_troubleshoot"><span>Troubleshooting (hrs)</span></div><input type="number" min="0" step="1" name="elec_troubleshoot_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_other_cb"><span>Other</span></div><input type="text" name="elec_other_text" placeholder="Describe..."><input type="number" min="0" step="1" name="elec_other_qty" placeholder="Qty"></div>
+<div class="row"><div class="left"><input type="checkbox" name="elec_extra_cb"><span>Extra</span></div></div>
+<p class='small'>This HTML form is Base44-ready (web view). To save submissions, we connect it to your Base44 tables / API.</p>
+</body></html>
